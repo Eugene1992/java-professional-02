@@ -1,8 +1,6 @@
 package hw1;
 
-/**
- * Created by User on 06/12/2016.
- */
+
 import java.util.Arrays;
 import java.util.Iterator;
 
@@ -16,6 +14,7 @@ public class Stack <T> implements Iterable{
 
 
 
+
     public void  push(T element ){
 
         for (int i=0; i<array.length;i++)
@@ -25,16 +24,17 @@ public class Stack <T> implements Iterable{
             }
     }
     public Iterator <T> iterator() {
-        Iterator <T> iterator = new Iterator<T>() {
+        Iterator <T> iter = new Iterator<T>() {
             @Override
             public boolean hasNext() {
 
-                return array.length==0 ? false:true;
+                return array.length != 0 ? true: false;
             }
 
             @Override
             public T next() {
                 return pop();
+
             }
 
             @Override
@@ -42,7 +42,7 @@ public class Stack <T> implements Iterable{
 
             }
         };
-       return iterator;
+       return iter;
     }
 
 
