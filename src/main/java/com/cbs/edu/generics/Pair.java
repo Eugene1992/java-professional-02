@@ -1,4 +1,4 @@
-package generics;
+package com.cbs.edu.generics;
 
 public class Pair {
     private Object key;
@@ -21,6 +21,6 @@ public class Pair {
         Pair pairOne = new Pair(10, "String");
         Pair pairTwo = new Pair("String", 10);
 
-        String key = (String) pairOne.getKey();
+        String key = (String) pairOne.getKey(); // ClassCastException!
     }
 }

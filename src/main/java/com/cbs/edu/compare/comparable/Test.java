@@ -1,4 +1,4 @@
-package compare.comparable;
+package com.cbs.edu.compare.comparable;
 
 import java.util.*;
 

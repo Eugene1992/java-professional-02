@@ -1,4 +1,4 @@
-package generics;
+package com.cbs.edu.generics;
 
 public class GenericPair<K, V> {
 
@@ -19,8 +19,8 @@ public class GenericPair<K, V> {
     }
 
     public static void main(String[] args) {
-        GenericPair<Integer, String> pairOne = new GenericPair<>(10, "String");
-        GenericPair<String, Integer> pairTwo = new GenericPair<>("String", 10);
+        GenericPair<Integer, String> pairOne = new GenericPair<Integer, String>(10, "String");
+        GenericPair<String, Integer> pairTwo = new GenericPair<String, Integer>("String", 10);
 
         String key = pairOne.getValue();
         System.out.println(key);
