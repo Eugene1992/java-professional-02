@@ -9,7 +9,7 @@ public class Stack <T> implements Iterable{
     private T [] array;
 
     public Stack(int n) {
-       this.array = (T []) new Object [n];
+       this.array = (T []) new Object [n] ;
     }
 
 
