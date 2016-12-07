@@ -1,15 +1,17 @@
 package hw1;
 
 
+
 import java.util.Arrays;
 import java.util.Iterator;
 
 public class Stack <T> implements Iterable{
 
     private T [] array;
+    private int cursor=-1;
 
     public Stack(int n) {
-       this.array = (T []) new Object [n] ;
+        array = (T []) new Object [n] ;
     }
 
 
@@ -17,18 +19,30 @@ public class Stack <T> implements Iterable{
 
     public void  push(T element ){
 
-        for (int i=0; i<array.length;i++)
-            if (array[i] ==null) {
-                array[i]=element;
-                break;
-            }
+        array[++cursor]=element;
     }
+
+
+
+    @Override
+    public String toString() {
+        return "Stack{" +
+                "array=" + Arrays.toString(array) +
+                '}';
+    }
+
+    public T  pop (){
+
+        return array[--cursor];
+
+    }
+
     public Iterator <T> iterator() {
         Iterator <T> iter = new Iterator<T>() {
             @Override
             public boolean hasNext() {
 
-                return array.length != 0 ? true: false;
+                return cursor!=array.length-1;
             }
 
             @Override
@@ -42,27 +56,7 @@ public class Stack <T> implements Iterable{
 
             }
         };
-       return iter;
-    }
-
-
-    @Override
-    public String toString() {
-        return "Stack{" +
-                "array=" + Arrays.toString(array) +
-                '}';
-    }
-
-    public T  pop (){
-        T t = null;
-        for (int i=array.length-1; i>=0;i--) {
-            if (array[i] != null) {
-                t = array[i];
-                break;
-            }
-        }
-        return t;
-
+        return iter;
     }
 
     public static void main(String[] args) {
