@@ -37,7 +37,7 @@ public class Stack <T> implements Iterable{
 
     }
 
-    public Iterator <T> iterator() {
+    public Iterator <T> iterator()  {
         Iterator <T> iter = new Iterator<T>() {
             @Override
             public boolean hasNext() {
