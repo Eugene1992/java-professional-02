@@ -1,4 +1,4 @@
-package interfaces;
+package com.cbs.edu.interfaces;
 
 public interface I {
     void f();
@@ -10,10 +10,3 @@ public interface I {
     }
 }
 
-class A implements I {
-
-    @Override
-    public void f() {
-
-    }
-}

@@ -27,7 +27,7 @@ public class IvanStack<E> implements Iterable<E> {
      * Constructs an empty list with an initial capacity of ten.
      */
     public IvanStack() {
-        this.elementData = (E[])new Object[DEFAULT_CAPACITY];
+        this.elementData = (E[]) new Object[DEFAULT_CAPACITY];
     }
 
     /**
@@ -37,9 +37,9 @@ public class IvanStack<E> implements Iterable<E> {
      */
     public IvanStack(int initialCapacity) {
         if (initialCapacity > DEFAULT_CAPACITY) {
-            this.elementData = (E[])new Object[initialCapacity];
+            this.elementData = (E[]) new Object[initialCapacity];
         } else {
-            this.elementData = (E[])new Object[DEFAULT_CAPACITY];
+            this.elementData = (E[]) new Object[DEFAULT_CAPACITY];
         }
     }
 
@@ -51,7 +51,7 @@ public class IvanStack<E> implements Iterable<E> {
 
         if (size == elementData.length) {
             int newLength = elementData.length * 2;
-            E[] copy = (E[])new Object[newLength];
+            E[] copy = (E[]) new Object[newLength];
             System.arraycopy(elementData, 0, copy, 0, elementData.length);
             elementData = copy;
         }
@@ -63,7 +63,7 @@ public class IvanStack<E> implements Iterable<E> {
      * Returns the first element in this list.
      */
     public E pop() {
-        if(size==0)
+        if (size == 0)
             return null;
 
         E e = elementData[0];
@@ -72,7 +72,7 @@ public class IvanStack<E> implements Iterable<E> {
         if ((size > DEFAULT_CAPACITY) && ((size * 4) < elementData.length)) {
             newLength = elementData.length / 2;
         }
-        E[] copy = (E[])new Object[newLength];
+        E[] copy = (E[]) new Object[newLength];
         System.arraycopy(elementData, 1, copy, 0, --size);
 
         elementData = copy;
@@ -80,9 +80,8 @@ public class IvanStack<E> implements Iterable<E> {
     }
 
 
-
     /**
-     * Returns a list iterator over the elements in this list (in proper
+     * Returns a list com.cbs.edu.iterator over the elements in this list (in proper
      * sequence).
      */
     public Iterator<E> iterator() {
@@ -143,18 +142,18 @@ public class IvanStack<E> implements Iterable<E> {
         if (o == this)
             return true;
 
-        if(o.getClass() != this.getClass())
+        if (o.getClass() != this.getClass())
             return false;
 
-        if(o == null)
+        if (o == null)
             return false;
 
-        IvanStack<E> that = (IvanStack<E>)o;
+        IvanStack<E> that = (IvanStack<E>) o;
 
-        if(this.size() != that.size())
+        if (this.size() != that.size())
             return false;
 
-        if(!this.toString().equals(that.toString()))
+        if (!this.toString().equals(that.toString()))
             return false;
 
         return true;
@@ -168,7 +167,7 @@ public class IvanStack<E> implements Iterable<E> {
     public int hashCode() {
         int hashCode = 1;
         for (E e : elementData)
-            hashCode = 31*hashCode + (e==null ? 0 : e.hashCode());
+            hashCode = 31 * hashCode + (e == null ? 0 : e.hashCode());
         return hashCode;
     }
 
@@ -180,14 +179,14 @@ public class IvanStack<E> implements Iterable<E> {
      */
     @Override
     public String toString() {
-        StringBuilder result  = new StringBuilder();
+        StringBuilder result = new StringBuilder();
         result.append("[");
         for (int i = 0; i < size; i++) {
             result.append(elementData[i]);
             result.append(",");
         }
-        if(result.length()>1){
-            result.setLength(result.length()-1);
+        if (result.length() > 1) {
+            result.setLength(result.length() - 1);
         }
         result.append("]");
 
