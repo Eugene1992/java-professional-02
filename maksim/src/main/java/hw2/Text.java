@@ -14,11 +14,7 @@ public class Text {
 
     public Text(String text) {
         this.text=text;
-
     }
-
-
-
 
     public Map <String,Integer> maptosort(){
         Map< String,Integer> map = new HashMap<>();
@@ -29,14 +25,7 @@ public class Text {
             else {
                 map.put(array[i],map.get(array[i])+1);
             }
-
         }
-
         return map;
     }
-
-
-
-
-
 }
