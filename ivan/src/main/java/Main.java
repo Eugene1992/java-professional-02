@@ -1,15 +1,19 @@
 import collection.IvanStack;
+import com.sun.corba.se.impl.orbutil.closure.Constant;
+import hash_map.Repetition;
 import sun.plugin.javascript.navig.Array;
 
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
+import java.util.*;
 
 public class Main {
+
     public static void main(String[] args){
 
-        ArrayList<String> s = new ArrayList<String>();
+
+        System.out.println(Repetition.getRepetitionList("1 20 20 1 1 1 1.,"));
+/*
+        HashMap<String,String> sdf;
+        ArrayList<String> s = new ArrayList<String>();*/
        /* int[] ints = {1,2,3,4,5,6,7,8,9,10};
 
 
@@ -20,6 +24,7 @@ public class Main {
         System.arraycopy(ints, 1, copy, 0, ints.length-1);
         System.out.println(Arrays.toString(copy));*/
 
+        /*
 
         IvanStack<String> stringIvanStack1 = new IvanStack<String>();
         for (int i = 0; i < 100; i++) {
