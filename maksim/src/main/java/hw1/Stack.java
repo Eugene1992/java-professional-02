@@ -33,7 +33,7 @@ public class Stack <T> implements Iterable{
 
     public T  pop (){
 
-        return array[--cursor];
+        return array[cursor--];
 
     }
 
@@ -53,7 +53,7 @@ public class Stack <T> implements Iterable{
 
             @Override
             public void remove() {
-
+                array[cursor--]=null;
             }
         };
         return iter;
@@ -64,13 +64,18 @@ public class Stack <T> implements Iterable{
         stack.push(1);
         stack.push(2);
         stack.push(3);
-        stack.push(4);
-        Object obj3 = stack.pop();
-        Object obj2 = stack.pop();
 
         System.out.println(stack.toString());
+        Object obj3 = stack.pop();
+        Object obj2 = stack.pop();
+        Object obj1 = stack.pop();
+
         System.out.println(obj3);
         System.out.println(obj2);
+        System.out.println(obj1);
+        System.out.println(stack.toString());
+
+
     }
 
 
