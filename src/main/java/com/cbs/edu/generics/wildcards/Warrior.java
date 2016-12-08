@@ -1,6 +1,7 @@
 package com.cbs.edu.generics.wildcards;
 
 public class Warrior extends GameUnit {
+
     protected String name;
     protected int power;
 

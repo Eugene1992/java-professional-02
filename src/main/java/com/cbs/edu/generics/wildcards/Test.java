@@ -20,7 +20,7 @@ public class Test {
         List<ArcherWarrior> archerWarriors = Arrays.asList(firstArcher, secondArcher, thirdArcher);
         List<MagicWarrior> magicWarriors = Arrays.asList(firstMag, secondMag, thirdMag);
 
-//        boolean isMagicBandCooler = WarriorManager.isStrongerThen(magicWarriors, archerWarriors);
+        boolean isMagicBandCooler = WarriorManager.isStrongerThen(magicWarriors, archerWarriors);
 
 
 
