@@ -1,28 +1,21 @@
 package hw1;
 
 
-
 import java.util.Arrays;
 import java.util.Iterator;
 
-public class Stack <T> implements Iterable{
+public class Stack<T> implements Iterable {
 
-    private T [] array;
-    private int cursor=-1;
+    private T[] array;
+    private int cursor = -1;
 
     public Stack(int n) {
-        array = (T []) new Object [n] ;
+        array = (T[]) new Object[n];
     }
 
-
-
-
-    public void  push(T element ){
-
-        array[++cursor]=element;
+    public void push(T element) {
+        array[++cursor] = element;
     }
-
-
 
     @Override
     public String toString() {
@@ -31,18 +24,18 @@ public class Stack <T> implements Iterable{
                 '}';
     }
 
-    public T  pop (){
+    public T pop() {
 
-        return array[--cursor];
+        return array[cursor--];
 
     }
 
-    public Iterator <T> iterator()  {
-        Iterator <T> iter = new Iterator<T>() {
+    public Iterator<T> iterator() {
+        Iterator<T> iter = new Iterator<T>() {
             @Override
             public boolean hasNext() {
 
-                return cursor!=array.length-1;
+                return cursor != array.length - 1;
             }
 
             @Override
@@ -53,24 +46,29 @@ public class Stack <T> implements Iterable{
 
             @Override
             public void remove() {
-
+                array[cursor--] = null;
             }
         };
         return iter;
     }
 
     public static void main(String[] args) {
-        Stack <Integer> stack = new Stack<>(10);
+        Stack<Integer> stack = new Stack<>(10);
         stack.push(1);
         stack.push(2);
         stack.push(3);
-        stack.push(4);
-        Object obj3 = stack.pop();
-        Object obj2 = stack.pop();
 
         System.out.println(stack.toString());
+        Object obj3 = stack.pop();
+        Object obj2 = stack.pop();
+        Object obj1 = stack.pop();
+
         System.out.println(obj3);
         System.out.println(obj2);
+        System.out.println(obj1);
+        System.out.println(stack.toString());
+
+
     }
 
 
