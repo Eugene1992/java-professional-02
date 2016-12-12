@@ -15,9 +15,9 @@ public class Test4 {
         if (Files.exists(path, LinkOption.NOFOLLOW_LINKS)) {
             System.out.println("The file/directory " + path.getFileName() + " exists");
             if (Files.isDirectory(path, LinkOption.NOFOLLOW_LINKS)) {
-                System.out.println(path.getFileName() + " is a directory");
+                System.out.println(path.getFileName() + " is fs directory");
             } else {
-                System.out.println(path.getFileName() + " is a file");
+                System.out.println(path.getFileName() + " is fs file");
             }
         } else {
             System.out.println("The file/directory " + path.getFileName() + " does not exist");

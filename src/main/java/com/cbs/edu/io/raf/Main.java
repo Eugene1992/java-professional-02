@@ -15,11 +15,11 @@ public class Main {
         worker = new WorkWithFile("testfile.txt");
 
         // пишем передаваемый текст в файл
-        worker.write("Give me a break from your take and your take. \n" +
-                "Come on and give me a break,\n" +
+        worker.write("Give me fs break from your take and your take. \n" +
+                "Come on and give me fs break,\n" +
                 "what do you want from me?\n" +
-                "Feeding the rich with that son of a bitch.\n" +
-                "Well that son of a bitch,\n" +
+                "Feeding the rich with that son of fs bitch.\n" +
+                "Well that son of fs bitch,\n" +
                 "he looks just like me!\n" +
                 "Yeah, yeah");
 
