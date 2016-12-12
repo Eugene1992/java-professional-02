@@ -24,8 +24,7 @@ public class SpeedList<E> {
     public void add(E value) {
         if (index == array.length)
             growArray();
-        array[index] = value;
-        index++;
+        array[index++] = value;
         size++;
     }
 
@@ -35,8 +34,8 @@ public class SpeedList<E> {
         array = newArray;
     }
 
-    public E get(int Index) {
-        checkIndex(index);
+    public E get(int index) {
+        checkIndex(this.index);
         return (E) array[index];
     }
 
