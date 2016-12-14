@@ -8,8 +8,8 @@ import java.nio.file.Paths;
  */
 public class Test3 {
     public static void main(String[] args) {
-        Path path1 = Paths.get("Test");
-        Path path2 = Paths.get("/home/heorhi/workspace/OCPJP/Test");
+        Path path1 = Paths.get("SerialazibleTest");
+        Path path2 = Paths.get("/home/heorhi/workspace/OCPJP/SerialazibleTest");
         System.out.println("(path1.compareTo(path2) == 0) is: " + (path1.compareTo(path2) == 0));
         System.out.println("path1.equals(path2) is: " + path1.equals(path2));
     }
