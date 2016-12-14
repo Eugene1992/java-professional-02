@@ -9,6 +9,6 @@ public class WildTurkey implements ITurkey {
 
     @Override
     public void fly() {
-        System.out.println("Fly in a short distance!");
+        System.out.println("Fly in fs short distance!");
     }
 }
