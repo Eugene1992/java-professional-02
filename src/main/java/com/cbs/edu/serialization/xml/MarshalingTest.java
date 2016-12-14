@@ -3,10 +3,10 @@ package com.cbs.edu.serialization.xml;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-import java.io.StringReader;
 import java.io.StringWriter;
 
 public class MarshalingTest {
@@ -32,8 +32,14 @@ public class MarshalingTest {
     @XmlType(name = "cat")
     @XmlRootElement
     public static class Cat {
+
+        @XmlElement(name = "superName")
         public String name;
+
+        @XmlAttribute
         public int age;
+
+        @XmlAttribute
         public int weight;
 
         public Cat() {
