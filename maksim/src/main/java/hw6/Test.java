@@ -6,32 +6,24 @@ package hw6;
 import java.lang.reflect.Field;
 
 public class Test {
-    public static void main(String[] args) {
-        Employee ivan = new Employee("Ivan", "Ivanov",1,10000);
-        Employee max = new Employee("Max", "Maximov",2,20000);
-
+    public static void main(String[] args) throws Exception {
+        Employee ivan = new Employee("Ivan", "Ivanov",30,10000);
         Class<? extends Employee> aClass = ivan.getClass();
-
-
-        if (aClass.isAnnotationPresent(MyJson.class)) {
-            MyJson annotation = aClass.getAnnotation(MyJson.class);
-
-            System.out.println(annotation.title());
-
+        if (!aClass.isAnnotationPresent(MyJson.class)) {
+            throw new Exception();
         }
+        System.out.println("{ ");
 
        Field[] declaredFields = aClass.getDeclaredFields();
         for (Field declaredField : declaredFields) {
-            declaredField.setAccessible(true);
-            if (declaredField.isAnnotationPresent(MyField.class)) {
-               MyField annotation = declaredField.getAnnotation(MyField.class);
-                System.out.print(declaredField.getName() + " : ");
-                System.out.println(annotation.firstname());
-                System.out.println(annotation.lastname());
-                System.out.println(annotation.age());
-
+             declaredField.setAccessible(true);
+            StringBuilder stringBuilder = new StringBuilder();
+           if (declaredField.isAnnotationPresent(MyField.class)) {
+                stringBuilder.append("\t").append(String.format("\"%s\" : \"%s\" ,", declaredField.getName(), declaredField.get(ivan))).append("\n");
             }
+            System.out.print(stringBuilder);
         }
+        System.out.println("}");
     }
 
 

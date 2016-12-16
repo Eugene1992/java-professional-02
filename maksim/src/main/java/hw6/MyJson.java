@@ -10,9 +10,7 @@ import java.lang.annotation.Target;
  */
 
 @Retention(value = RetentionPolicy.RUNTIME)
-@Target({ ElementType.FIELD, ElementType.TYPE})
+@Target({ ElementType.TYPE})
 public @interface MyJson {
-    String title() default "{ Employees : [ \n";
-
 
 }
