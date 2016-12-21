@@ -27,11 +27,9 @@ public class RecursionCopyFiles
         }
     }
 
-    public  void thisISFile(File file, File to) {
+    public  void thisISFile(File file, File to)
         {
             if (file.toString().endsWith(".txt")) {
-
-
                 try (InputStream is = new FileInputStream(file);
                      OutputStream os = new FileOutputStream(to,true)) {
                     byte[] buf = new byte[1024];
@@ -44,9 +42,6 @@ public class RecursionCopyFiles
                 }
             }
         }
-    }
-
-
 }
 
 
