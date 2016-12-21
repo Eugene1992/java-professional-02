@@ -13,25 +13,27 @@ public class StackTest {
 
     @Before
     public void setUp() {
-        stack = new Stack<>(10);
+        stack = new Stack<>();
         testValue = 777;
     }
 
     @Test
     public void testPush() throws Exception {
-        stack.push(testValue);
+        for (int i = 1; i <= testValue; i++) {
+            stack.push(i);
+        }
         final Integer RESULT = stack.pop();
         Assert.assertEquals(testValue, RESULT);
     }
 
     @Test
     public void testPop() throws Exception {
-        Stack stack = new Stack(10);
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        stack.pop();
-        Assert.assertEquals(2, stack.pop());
+
+        for (int i = 1; i <= testValue; i++) {
+            stack.push(i);
+        }
+        final Integer RESULT1=stack.pop();
+        Assert.assertEquals(testValue, RESULT1);
     }
 
     @Test
@@ -39,4 +41,13 @@ public class StackTest {
         final Iterator<Integer> RESULT = stack.iterator();
         Assert.assertNotNull(RESULT);
     }
+    @Test
+    public  void  testSize() throws Exception{
+        for (int i = 1; i <= testValue; i++) {
+            stack.push(i);
+        }
+        final Integer res = stack.size();
+        Assert.assertEquals(testValue, res);
+    }
+
 }

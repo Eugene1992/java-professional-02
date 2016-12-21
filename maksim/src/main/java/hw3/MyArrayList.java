@@ -1,7 +1,6 @@
 package hw3;
 
 
-import java.util.Arrays;
 import java.util.Iterator;
 
 /**
@@ -9,9 +8,10 @@ import java.util.Iterator;
  */
 public class MyArrayList<T> {
 
-    private static final int defaultCapacity = 1;
+    private static final int defaultCapacity = 10;
     private T[] arr;
     private int kursor = -1;
+
 
 
     public MyArrayList() {
@@ -21,14 +21,13 @@ public class MyArrayList<T> {
 
     public int size() {
 
-
-        return arr.length;
+        return kursor+1;
     }
 
     private void checkSize() {
 
-        if (arr.length == kursor + 1) {
-            T[] arr1 = (T[]) new Object[arr.length + 1];
+        if (size() == kursor + 1) {
+            T[] arr1 = (T[]) new Object[arr.length * 3 / 2 + 1];
             System.arraycopy(arr, 0, arr1, 0, arr.length);
             arr = arr1;
         }
@@ -37,13 +36,16 @@ public class MyArrayList<T> {
     public void add(T element) {
         checkSize();
         arr[++kursor] = element;
+
     }
 
     public void add(int i, T element) {
         checkSize();
 
-        System.arraycopy(arr, i, arr, i + 1, kursor + 1 - i);
+        System.arraycopy(arr, i, arr, i + 1, ++kursor  - i);
         arr[i] = element;
+
+
     }
 
     public T get(int i) {
@@ -71,26 +73,34 @@ public class MyArrayList<T> {
 
         T[] arr1 = (T[]) new Object[arr.length - 1];
         System.arraycopy(arr, 0, arr1, 0, kursor);
-        System.arraycopy(arr, i + 1, arr1, i, kursor + 1 - i);
+        if (i < size() - 1) {
+            System.arraycopy(arr, i + 1, arr1, i, kursor - i);
+        } else {
+        }
         arr = arr1;
+        kursor--;
+
     }
 
     public Iterator<T> iterator() {
         Iterator<T> iter = new Iterator<T>() {
+            int cursor = -1;
 
             @Override
             public boolean hasNext() {
-                return kursor != arr.length - 1;
+
+                return cursor++ < size() - 1;
             }
 
             @Override
             public T next() {
-                return get(kursor);
+                return get(cursor);
             }
 
             @Override
             public void remove() {
-                MyArrayList.this.remove(kursor);
+
+                MyArrayList.this.remove(cursor);
             }
         };
         return iter;
@@ -99,39 +109,22 @@ public class MyArrayList<T> {
 
     @Override
     public String toString() {
-        return Arrays.toString(arr);
+        //  return Arrays.toString(arr);}
+
+
+        StringBuilder result = new StringBuilder();
+        result.append("{");
+        for (int i = 0; i < kursor+1; i++) {
+            result.append(arr[i]);
+            result.append(",");
+        }
+        if (result.length() > 1) {
+            result.setLength(result.length() - 1);
+        }
+        result.append("}");
+
+        return result.toString();
     }
 
-    public static void main(String[] args) {
-        MyArrayList list = new MyArrayList();
-        for (int i = 0; i < 21; i++) {
-            list.add(i);
-        }
-        System.out.println(list.toString());
-       /* System.out.println(list.kursor);
-        System.out.println(list.size());
-        list.add(15,10000);
-        System.out.println(list.size());
-        System.out.println(list.toString());
-        System.out.println(list.get(15));
-        list.set(15, 555555);
-        System.out.println(list.toString());
-        System.out.println(list.contains(555555));
-        list.remove(15);
-        System.out.println(list.toString());
-        System.out.println(list.size());*/
-
-        Iterator<Integer> iterator = list.iterator();
-        while (iterator.hasNext()) {
-            Integer next = iterator.next();
-            if (next.equals(2)) {
-                iterator.remove();
-                continue;
-            }
-
-        }
-        System.out.println(list.toString());
-
-    }
 
 }

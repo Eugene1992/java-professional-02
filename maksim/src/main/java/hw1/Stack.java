@@ -1,36 +1,63 @@
 package hw1;
 
 
-import java.util.Arrays;
+
 import java.util.Iterator;
 
 public class Stack<T> implements Iterable {
 
     private T[] array;
     private int cursor = -1;
+    private int capacity = 10;
+    private  int size;
 
-    public Stack(int n) {
-        array = (T[]) new Object[n];
+    public Stack() {
+
+
+        array = (T[]) new Object[capacity];
+
+    }
+    public int  size (){
+        return size;
     }
 
+
     public void push(T element) {
+        if (array.length == cursor + 1) {
+            T[] arr1 = (T[]) new Object[array.length *2];
+            System.arraycopy(array, 0, arr1, 0, array.length);
+            array = arr1;}
         array[++cursor] = element;
+        size++;
+
     }
 
     @Override
     public String toString() {
-        return "Stack{" +
-                "array=" + Arrays.toString(array) +
-                '}';
+        StringBuilder result = new StringBuilder();
+        result.append("{");
+        for (int i = 0; i < size; i++) {
+            result.append(array[i]);
+            result.append(",");
+        }
+        if (result.length() > 1) {
+            result.setLength(result.length() - 1);
+        }
+        result.append("}");
+
+        return result.toString();
     }
 
     public T pop() {
 
         return array[cursor--];
 
+
     }
 
+
     public Iterator<T> iterator() {
+        int kursor=-1;
         Iterator<T> iter = new Iterator<T>() {
             @Override
             public boolean hasNext() {
@@ -47,28 +74,31 @@ public class Stack<T> implements Iterable {
             @Override
             public void remove() {
                 array[cursor--] = null;
+
             }
         };
         return iter;
     }
 
     public static void main(String[] args) {
-        Stack<Integer> stack = new Stack<>(10);
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i = 1; i < 2; i++) {
+            stack.push(i);
+        }
 
         System.out.println(stack.toString());
-        Object obj3 = stack.pop();
-        Object obj2 = stack.pop();
-        Object obj1 = stack.pop();
-
-        System.out.println(obj3);
-        System.out.println(obj2);
-        System.out.println(obj1);
-        System.out.println(stack.toString());
 
 
+       /* Iterator<Integer> iterator = stack.iterator();
+        while (iterator.hasNext()) {
+            Integer next = iterator.next();
+            if (next.equals(2)) {
+                iterator.remove();
+                continue;
+            }
+
+        }*/
     }
 
 
