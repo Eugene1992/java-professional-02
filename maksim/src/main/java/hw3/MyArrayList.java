@@ -11,7 +11,7 @@ public class MyArrayList<T> {
     private static final int defaultCapacity = 10;
     private T[] arr;
     private int kursor = -1;
-
+    private int size;
 
 
     public MyArrayList() {
@@ -21,12 +21,12 @@ public class MyArrayList<T> {
 
     public int size() {
 
-        return kursor+1;
+        return kursor + 1;
     }
 
     private void checkSize() {
-
-        if (size() == kursor + 1) {
+        size = arr.length;
+        if (size == kursor + 1) {
             T[] arr1 = (T[]) new Object[arr.length * 3 / 2 + 1];
             System.arraycopy(arr, 0, arr1, 0, arr.length);
             arr = arr1;
@@ -42,7 +42,7 @@ public class MyArrayList<T> {
     public void add(int i, T element) {
         checkSize();
 
-        System.arraycopy(arr, i, arr, i + 1, ++kursor  - i);
+        System.arraycopy(arr, i, arr, i + 1, ++kursor - i);
         arr[i] = element;
 
 
@@ -60,7 +60,7 @@ public class MyArrayList<T> {
 
     public boolean contains(T element) {
         boolean t = false;
-        for (int i = 0; i < kursor; i++) {
+        for (int i = 0; i <= kursor; i++) {
             if (arr[i].equals(element))
                 t = true;
 
@@ -109,12 +109,9 @@ public class MyArrayList<T> {
 
     @Override
     public String toString() {
-        //  return Arrays.toString(arr);}
-
-
         StringBuilder result = new StringBuilder();
         result.append("{");
-        for (int i = 0; i < kursor+1; i++) {
+        for (int i = 0; i < kursor + 1; i++) {
             result.append(arr[i]);
             result.append(",");
         }
