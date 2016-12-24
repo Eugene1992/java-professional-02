@@ -5,6 +5,7 @@ package annotation_tka4;
  */
 @Service(name = "SuperPuperSimpleService")
 public class SimpleService {
+
     @Init
     public  void initService(){
         System.out.println("initService  begins");

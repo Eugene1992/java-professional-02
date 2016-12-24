@@ -6,11 +6,8 @@ package annotation_tka4;
 @Service(name = "SuperPuperLazyService")
 public class LazyService {
 
-
     @Init
     public void lazyInit() throws Exception {
         System.out.println("lazyInit  begins");
     }
-
-
 }

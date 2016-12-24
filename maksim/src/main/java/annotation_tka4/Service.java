@@ -11,6 +11,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Service {
+
     String name();
     boolean lazyLoad () default  false;
 }

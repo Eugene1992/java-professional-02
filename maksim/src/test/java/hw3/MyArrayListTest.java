@@ -12,14 +12,14 @@ public class MyArrayListTest {
     private int newValue;
     private int test;
 
+    //// TODO: 24.12.2016 Rename methods and variables by Code Conventions.
 
     @Before
     public void setUp() {
         myArrayList = new MyArrayList<>();
         testValue = 10;
-        newValue=11;
-        test=10;
-
+        newValue = 11;
+        test = 10;
     }
 
     @Test
@@ -43,7 +43,7 @@ public class MyArrayListTest {
     @Test
     public void testAdd1() throws Exception {
         for (int i = 0; i <= test; i++) {
-            myArrayList.add(i,i);
+            myArrayList.add(i, i);
         }
         final int res = myArrayList.get(test);
         Assert.assertEquals(testValue, res);

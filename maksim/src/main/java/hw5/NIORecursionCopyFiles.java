@@ -35,7 +35,7 @@ public class NIORecursionCopyFiles {
             Path path = Paths.get(String.valueOf(file));
             byte[] data = Files.readAllBytes(path);
             String content = new String(data, StandardCharsets.UTF_8);
-            Path logFile = Paths.get(String.valueOf(to));
+            Path logFile = to.toPath();
             try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.APPEND)) {
                 writer.write(content);
             }

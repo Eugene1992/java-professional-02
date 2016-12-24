@@ -10,6 +10,5 @@ public class SavePicturesTest {
         String url = "http://flangex.herokuapp.com/io/load";
         String fileName = "C:\\Users\\User\\Desktop\\";
         new SavePictures().saveFromURL(url,fileName);
-
     }
 }

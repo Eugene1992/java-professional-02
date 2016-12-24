@@ -1,16 +1,14 @@
 package hw6;
 
 @MyJson
-public class Employee  {
-
-
-    public int p = 10;
+public class Employee {
 
     @MyField
     private String firstName;
 
     @MyField
     private String lastName;
+
     @MyField
     private int age;
 
@@ -66,7 +64,6 @@ public class Employee  {
     @Override
     public String toString() {
         return "Employee{" +
-                "p=" + p +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +

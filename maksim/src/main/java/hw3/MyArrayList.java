@@ -15,12 +15,10 @@ public class MyArrayList<T> {
 
 
     public MyArrayList() {
-
         arr = (T[]) new Object[defaultCapacity];
     }
 
     public int size() {
-
         return kursor + 1;
     }
 
@@ -36,25 +34,19 @@ public class MyArrayList<T> {
     public void add(T element) {
         checkSize();
         arr[++kursor] = element;
-
     }
 
     public void add(int i, T element) {
         checkSize();
-
         System.arraycopy(arr, i, arr, i + 1, ++kursor - i);
         arr[i] = element;
-
-
     }
 
     public T get(int i) {
-
         return arr[i];
     }
 
     public T set(int i, T element) {
-
         return arr[i] = element;
     }
 
@@ -70,7 +62,6 @@ public class MyArrayList<T> {
     }
 
     public void remove(int i) {
-
         T[] arr1 = (T[]) new Object[arr.length - 1];
         System.arraycopy(arr, 0, arr1, 0, kursor);
         if (i < size() - 1) {
@@ -88,7 +79,6 @@ public class MyArrayList<T> {
 
             @Override
             public boolean hasNext() {
-
                 return cursor++ < size() - 1;
             }
 
@@ -99,13 +89,11 @@ public class MyArrayList<T> {
 
             @Override
             public void remove() {
-
                 MyArrayList.this.remove(cursor);
             }
         };
         return iter;
     }
-
 
     @Override
     public String toString() {
@@ -119,9 +107,6 @@ public class MyArrayList<T> {
             result.setLength(result.length() - 1);
         }
         result.append("}");
-
         return result.toString();
     }
-
-
 }
