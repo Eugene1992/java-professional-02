@@ -18,13 +18,10 @@ public class Hash_Map {
         Map<Integer, String> hashMap = new HashMap<>();
         String[] split = text.split(" ");
         for (int i = 0; i < split.length; i++) {
-            if (hashMap.containsKey(i)) {
-                hashMap.put(1 + 1, split[i]);
-            } else hashMap.put(1, split[i]);
+                hashMap.put(1, split[i]);
         }
         return hashMap;
     }
-
     public static void main(String[] args) {
 
         String text = "Доступ к полям класса напрямую, " +

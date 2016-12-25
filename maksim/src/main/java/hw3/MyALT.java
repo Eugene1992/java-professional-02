@@ -9,7 +9,7 @@ public class MyALT {
 
     public static void main(String[] args) {
         MyArrayList list = new MyArrayList();
-        for (int i = 0; i < 39; i++) {
+        for (int i = 0; i < 100; i++) {
             list.add(i);
         }
         System.out.println(list.toString());
