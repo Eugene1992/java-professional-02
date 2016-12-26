@@ -1,14 +1,11 @@
 package stream;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class ParseFile {
 
@@ -17,6 +14,7 @@ public class ParseFile {
                 .map(s -> parseLine(s))
                 .collect(Collectors.toList());
     }
+
     public static List<Statistics> parseFileFilterByDate(String file, LocalDate from, LocalDate to) throws IOException {
         return Files.lines(Paths.get(file))
                 .map(s -> parseLine(s)).filter(s -> s.getDate().isAfter(from) && s.getDate().isAfter(to))
