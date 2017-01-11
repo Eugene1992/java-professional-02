@@ -32,53 +32,48 @@ public class SpeedListTest {
 
     @Test
     public void get() throws Exception {
-
     }
 
     @Test
     public void set() throws Exception {
-
+        testArray.add(testWords);
+        testArray.set(0 ,testWordsThree);
+        final String EXPECTED_RESULT = testArray.get(0);
+        Assert.assertNotEquals(EXPECTED_RESULT, testWords);
     }
 
     @Test
     public void size() throws Exception {
         int size = testArray.size();
-        for (int i = 0; i < 10; i++) {
             testArray.add(testWords);
-        }
-
         Assert.assertNotEquals(size, testArray.size());
-        System.out.println( "StartSize " + size + " FinalSize " + testArray.size());
-
     }
 
     @Test
     public void indexOf() throws Exception {
-      testArray.add(testWordsTwo);
-        System.out.println(testArray.indexOf(testWordsTwo));
-      testArray.add(0, testWords);
-      testArray.add(testWordsThree);
-        System.out.println(testArray.indexOf(testWordsTwo));
+        for (int i = 0; i < 5; i++) {
+            testArray.add(testWordsTwo);
+        }
+      testArray.add(3, testWords);
+        final Object EXPECTED_RESULT = testArray.indexOf(testWords);
+        Assert.assertEquals(testArray.get(3), EXPECTED_RESULT);
     }
 
     @Test
-    public void add1() throws Exception {
+    public void addInsert() throws Exception {
         testArray.add(testWords);
         testArray.add(0, testWordsTwo);
         final String EXPECTED_RESULT_ADD = testArray.get(0);
         Assert.assertEquals(testArray.get(0), EXPECTED_RESULT_ADD);
-        System.out.println(testArray.get(0) + " " + testArray.get(1));
     }
 
     @Test
     public void remove() throws Exception {
         testArray.add(testWords);
         testArray.add(testWordsTwo);
-        System.out.println(testArray.get(0) + " testWords");
         final String EXPECTED_RESULT = testArray.get(0);
         testArray.remove(0);
         Assert.assertNotEquals(testArray.get(0), EXPECTED_RESULT);
-        System.out.println(" " +testArray.get(0)+ " removeWords");
     }
 
 }
