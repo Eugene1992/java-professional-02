@@ -1,5 +1,6 @@
 package com.cbs.edu.stack;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,7 +23,9 @@ public class StackTest {
 
     @Test
     public void push() throws Exception {
-
+        stack.push(testValue);
+        final String RESULT = stack.pop();
+        Assert.assertEquals(testValue, RESULT);
     }
 
     @Test

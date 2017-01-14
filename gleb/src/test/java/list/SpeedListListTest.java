@@ -7,7 +7,7 @@ import org.junit.Test;
 /**
  * Created by Gleb on 12.12.2016.
  */
-public class SpeedListTest {
+public class SpeedListListTest {
 
     private SpeedList<String> testArray;
     private String testWords;
@@ -30,14 +30,16 @@ public class SpeedListTest {
         Assert.assertEquals(testWords, EXPECTED_RESULT);
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void get() throws Exception {
+        final int NEGATIVE_INDEX = -1;
+        testArray.get(NEGATIVE_INDEX);
     }
 
     @Test
     public void set() throws Exception {
         testArray.add(testWords);
-        testArray.set(0 ,testWordsThree);
+        testArray.set(0, testWordsThree);
         final String EXPECTED_RESULT = testArray.get(0);
         Assert.assertNotEquals(EXPECTED_RESULT, testWords);
     }
@@ -45,7 +47,7 @@ public class SpeedListTest {
     @Test
     public void size() throws Exception {
         int size = testArray.size();
-            testArray.add(testWords);
+        testArray.add(testWords);
         Assert.assertNotEquals(size, testArray.size());
     }
 
@@ -54,9 +56,10 @@ public class SpeedListTest {
         for (int i = 0; i < 5; i++) {
             testArray.add(testWordsTwo);
         }
-      testArray.add(3, testWords);
-        final Object EXPECTED_RESULT = testArray.indexOf(testWords);
-        Assert.assertEquals(testArray.get(3), EXPECTED_RESULT);
+        final int INDEX = 3;
+        testArray.add(INDEX, testWords);
+        final int EXPECTED_INDEX = testArray.indexOf(testWords);
+        Assert.assertEquals(INDEX, EXPECTED_INDEX);
     }
 
     @Test

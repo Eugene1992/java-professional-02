@@ -31,7 +31,7 @@ public class SpeedList<E> {
         array = newArray;
     }
 
-    public E get(int index) {
+    public E get(int index) throws IllegalArgumentException {
         checkIndex(index);
         return (E) array[index];
     }
